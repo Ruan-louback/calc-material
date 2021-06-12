@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercícios HTML</title>
+</head>
+<body>
+    <header>
+       <h1> Exercícios HTMl</h1>
+    </header>
+    <nav> <!--tag de navegação da página na web-->
+        <a href="exercicios/teste.html"> 00-teste</a> |
+        <a href="exercicios/temp.html"> TTEMP</a>
+    </nav>
+    <section id="conteudo"></section>
+    <footer> <!--rodapé da página web-->
+        <br>
+        <h5>Curso de web moderno</h5>
+    </footer> <!--terminar de fazer rodar no browser-->
+    <script>
+        document.querySelectorAll('a').forEach(link =>{
+            const conteudo = document.getElementById('Conteudo')
+                
+            link.onclick = function(e) {
+                e.preventDefault() //mostra o click
+                fetch(link.href)
+                    then(resp => resp.text())
+                    then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+       
+</body>
+</html>
